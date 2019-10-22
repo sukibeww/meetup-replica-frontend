@@ -65,6 +65,12 @@ const Login = () => {
                   Forgot Your Password?
                 </a>
               </div>
+              <a
+                  className="no-underline hover:underline text-blue-dark text-xs text-indigo-600"
+                  href="{{ route('sign up form) }}"
+                >
+                  Sign up
+                </a>
             </div>
           </div>
         </div>
