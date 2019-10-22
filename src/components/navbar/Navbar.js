@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -22,15 +23,21 @@ const Navbar = () => {
         </div>
         <div className="flex flex-col w-full md:w-auto md:flex-grow md:flex md:items-center">
           <ul className="flex flex-col mt-4 -mx-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:ml-auto md:mt-0 md:pt-0 md:border-0 self-end">
-            <li>
-              <a className="block px-4 py-1 md:p-2 lg:px-4" href="/" title="Link">Link</a>
-            </li>
-            <li>
-              <a className="block px-4 py-1 md:p-2 lg:px-4 text-purple-600" href="/" title="Active Link">Active Link</a>
-            </li>
-            <li>
-              <a className="block px-4 py-1 md:p-2 lg:px-4" href="/" title="Link">Link</a>
-            </li>
+            <Link to="/home">
+              <li className="block px-4 py-1 md:p-2 lg:px-4">
+                Home
+              </li>
+            </Link>
+            <Link to="/register">
+              <li className="block px-4 py-1 md:p-2 lg:px-4">
+                Sign up
+              </li>
+            </Link>
+            <Link to="/login">
+              <li className="block px-4 py-1 md:p-2 lg:px-4">
+                Sign in
+              </li>
+            </Link>
           </ul>
         </div>
       </div>
