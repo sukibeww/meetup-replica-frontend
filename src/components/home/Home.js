@@ -13,7 +13,7 @@ const Home = () => {
           Upload and share photos with your friends!
         </h2>
         <h3 className="text-2xl mb-8 text-gray-200">
-          Seize and relive your favorite memory forever.
+          Seize and relive your favorite memories forever.
         </h3>
         <Link to="/register">
           <button className="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider">

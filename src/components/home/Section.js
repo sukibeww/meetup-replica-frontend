@@ -8,7 +8,7 @@ const HomeSection = () => {
       </h2>
       <div className="flex items-center flex-wrap mb-20">
         <div className="w-full md:w-1/2">
-          <h4 className="text-3xl text-gray-800 font-bold mb-3">Lorem</h4>
+          <h4 className="text-3xl text-gray-800 font-bold mb-3">Frame your social life</h4>
           <p className="text-gray-600 mb-8">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris egestas pretium massa, id consequat tortor elementum ac. Sed nec augue accumsan, varius augue facilisis, suscipit enim. Vivamus ac lacus at.
           </p>
@@ -22,7 +22,7 @@ const HomeSection = () => {
           <img src="https://svgshare.com/i/FeB.svg" alt="Reporting" />
         </div>
         <div className="w-full md:w-1/2 pl-10">
-          <h4 className="text-3xl text-gray-800 font-bold mb-3">Lorem Ipsum</h4>
+          <h4 className="text-3xl text-gray-800 font-bold mb-3">Share your personal life with your friends</h4>
           <p className="text-gray-600 mb-8">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris egestas pretium massa, id consequat tortor elementum ac. Sed nec augue accumsan, varius augue facilisis, suscipit enim. Vivamus ac lacus at.
           </p>
