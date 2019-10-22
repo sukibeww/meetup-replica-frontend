@@ -23,7 +23,7 @@ const Navbar = () => {
         </div>
         <div className="flex flex-col w-full md:w-auto md:flex-grow md:flex md:items-center">
           <ul className="flex flex-col mt-4 -mx-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:ml-auto md:mt-0 md:pt-0 md:border-0 self-end">
-            <Link to="/home">
+            <Link to="/">
               <li className="block px-4 py-1 md:p-2 lg:px-4">
                 Home
               </li>
@@ -36,6 +36,11 @@ const Navbar = () => {
             <Link to="/login">
               <li className="block px-4 py-1 md:p-2 lg:px-4">
                 Sign in
+              </li>
+            </Link>
+            <Link to="/upload">
+              <li className="block px-4 py-1 md:p-2 lg:px-4">
+                Upload
               </li>
             </Link>
           </ul>
