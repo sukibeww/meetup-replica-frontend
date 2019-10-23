@@ -5,6 +5,12 @@ import HomeSection from './Section';
 const Home = () => {
   return (
   <div>
+      <video autoPlay loop muted className="w-screen object-none" style={
+        { height: "32rem" }
+        }>
+        <source src={require('./video.mp4')} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     <div
     className="py-20"
     style={{ background: "linear-gradient(90deg, #667eea 0%, #764ba2 100%)" }}>
