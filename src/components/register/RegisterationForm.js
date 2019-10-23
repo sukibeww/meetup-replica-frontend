@@ -52,7 +52,7 @@ const RegistrationForm = () => {
                 password : document.getElementById("input-password").value,
                 password2 : document.getElementById("input-password2").value
               })
-              axios.post(`https://git.heroku.com/ca-hackathon-backend.git/users/new`, {userInformation})
+              axios.post(`https://ca-hackathon-backend.herokuapp.com//users/new`, {userInformation})
                 .then(res => {
                   console.log(res);
                   console.log(res.data);
