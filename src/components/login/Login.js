@@ -1,6 +1,21 @@
 import React from 'react';
+import useForm from 'react-hook-form';
+import axios from 'axios'
 
 const Login = () => {
+  const {register, handleSubmit, errors} = useForm();
+  const onSubmit = async (data) =>{
+    if(data){
+      await axios.post(`http://localhost:5000/users/login`, data)
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+      })
+      .catch((err) =>{
+        console.log(err);
+      });
+    }
+  }
   return (
     <div className="h-screen w-screen">
     <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
@@ -15,10 +30,11 @@ const Login = () => {
               <form
                 className="form-horizontal w-3/4 mx-auto"
                 method="POST"
-                action="#"
+                onSubmit={handleSubmit(onSubmit)}
               >
                 <div className="flex flex-col mt-4">
                   <input
+                    ref={register({required: true})}
                     id="email"
                     type="text"
                     className="flex-grow h-8 px-2 border rounded border-grey-400"
@@ -27,8 +43,10 @@ const Login = () => {
                     placeholder="Email"
                   />
                 </div>
+                {errors.email && <p className="text-red-600"><strong>This is required</strong></p>}
                 <div className="flex flex-col mt-4">
                   <input
+                    ref={register({required: true})}
                     id="password"
                     type="password"
                     className="flex-grow h-8 px-2 rounded border border-grey-400"
@@ -37,6 +55,7 @@ const Login = () => {
                     placeholder="Password"
                   />
                 </div>
+                {errors.password && <p className="text-red-600"><strong>This is required</strong></p>}
                 <div className="flex items-center mt-4">
                   <input
                     type="checkbox"
