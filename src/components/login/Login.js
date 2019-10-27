@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {AuthContext} from '../../contexts/authContext';
 import useForm from 'react-hook-form';
 import axios from 'axios'
 
 const Login = () => {
+  const authContext = useContext(AuthContext)
+  const {login} = authContext;
   const {register, handleSubmit, errors} = useForm();
   const onSubmit = async (data) =>{
     if(data){
       await axios.post(`http://localhost:5000/users/login`, data)
       .then((res) => {
-        console.log(res);
-        console.log(res.data);
+        login(res.data.token);
       })
       .catch((err) =>{
         console.log(err);
