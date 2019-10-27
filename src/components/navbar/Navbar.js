@@ -1,11 +1,12 @@
 import React, {useContext} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import { AuthContext } from '../../contexts/authContext';
 import axios from 'axios';
 
 const Navbar = () => {
   const authContext = useContext(AuthContext)
   const {checkSession, logout} = authContext;
+  let history = useHistory();
   const logoutPrompt = () => {
     const userInput = window.confirm("Are you sure?");
     const currentSession =  window.sessionStorage.getItem("insta-clone");
@@ -19,11 +20,13 @@ const Navbar = () => {
       .then((res)=>{
         console.log(res);
         logout();
+        history.push("/");
       })
       .catch((err)=> {
         console.log(err);
       })
     }
+    
   }
   function beforeLoginNavbar(){
     return(
