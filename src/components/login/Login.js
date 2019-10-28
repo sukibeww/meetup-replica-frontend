@@ -1,20 +1,25 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {AuthContext} from '../../contexts/authContext';
+import {useHistory} from 'react-router-dom';
 import useForm from 'react-hook-form';
 import axios from 'axios'
 
-const Login = () => {
+const Login = (props) => {
+  const authContext = useContext(AuthContext)
+  const {login} = authContext;
   const {register, handleSubmit, errors} = useForm();
+  let history = useHistory();
   const onSubmit = async (data) =>{
     if(data){
       await axios.post(`http://localhost:5000/users/login`, data)
       .then((res) => {
-        console.log(res);
-        console.log(res.data);
+        login(res.data.token);
       })
       .catch((err) =>{
         console.log(err);
       });
     }
+    history.push('/')
   }
   return (
     <div className="h-screen w-screen">
@@ -70,23 +75,14 @@ const Login = () => {
                 <div className="flex flex-col mt-8">
                   <button
                     type="submit"
-                    className="bg-purple-700 hover:bg-purple-500 text-white text-sm font-semibold py-2 px-4 rounded"
-                  >
+                    className="bg-purple-700 hover:bg-purple-500 text-white text-sm font-semibold py-2 px-4 rounded">
                     Login
                   </button>
                 </div>
               </form>
-              <div className="text-center mt-4">
-                <a
-                  className="no-underline hover:underline text-blue-dark text-xs"
-                  href="{{ route('password.request') }}"
-                >
-                  Forgot Your Password?
-                </a>
-              </div>
               <a
                   className="no-underline hover:underline text-blue-dark text-xs text-indigo-600"
-                  href="{{ route('sign up form) }}"
+                  href="/register"
                 >
                   Sign up
                 </a>

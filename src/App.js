@@ -13,18 +13,21 @@ import RegistrationForm from './components/register/RegisterationForm';
 import ImageUploadForm from './components/image-upload-form/ImageUploadForm';
 import Login from './components/login/Login'
 import Home from './components/home/Home'
+import AuthContextProvider from './contexts/authContext';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
-        <Switch >
-          <Route path="/" exact component={Home} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/register" exact component={RegistrationForm} />
-          <Route path="/upload" exact component={ImageUploadForm} />
-        </Switch>
+        <AuthContextProvider>
+          <Navbar />
+          <Switch >
+            <Route path="/" exact component={Home} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/register" exact component={RegistrationForm} />
+            <Route path="/upload" exact component={ImageUploadForm} />
+          </Switch>
+        </AuthContextProvider>
       </div>
     </Router>
   );
