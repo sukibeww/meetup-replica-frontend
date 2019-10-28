@@ -14,6 +14,7 @@ import ImageUploadForm from './components/image-upload-form/ImageUploadForm';
 import Login from './components/login/Login'
 import Home from './components/home/Home'
 import AuthContextProvider from './contexts/authContext';
+import Profile from './components/profile/Profile'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/login" exact component={Login} />
             <Route path="/register" exact component={RegistrationForm} />
             <Route path="/upload" exact component={ImageUploadForm} />
+            <Route path="/profile" exact component={Profile} />
           </Switch>
         </AuthContextProvider>
       </div>

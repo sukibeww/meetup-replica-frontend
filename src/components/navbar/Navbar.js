@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Navbar = () => {
   const authContext = useContext(AuthContext)
-  const {checkSession, logout} = authContext;
+  const {logout, isLoggedIn} = authContext;
   let history = useHistory();
   const logoutPrompt = () => {
     const userInput = window.confirm("Are you sure?");
@@ -68,7 +68,7 @@ const Navbar = () => {
     </nav>
     )
   }
-  function afterLoginNavbar(){
+  const afterLoginNavbar = () => {
     return(
       <nav className="bg-white shadow" role="navigation">
       <div className="container mx-auto p-4 flex flex-wrap items-center md:flex-no-wrap">
@@ -113,7 +113,7 @@ const Navbar = () => {
     </nav>
     )
   }
-  if(checkSession()){
+  if(isLoggedIn){
     return afterLoginNavbar();
   }
   else{
