@@ -13,7 +13,7 @@ const Login = (props) => {
     if(data){
       await axios.post(`http://localhost:5000/users/login`, data)
       .then((res) => {
-        login(res.data.token);
+        login(res.data);
       })
       .catch((err) =>{
         console.log(err);

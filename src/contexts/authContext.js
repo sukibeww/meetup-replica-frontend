@@ -5,31 +5,39 @@ export const AuthContext = createContext();
 class AuthContextProvider extends Component {
   state = {
     isLoggedIn: false,
-    token: null
+    token: null,
+    userName: null
   }
+
   checkSession = () =>{
     const session = window.sessionStorage.getItem("insta-clone")
     if(session){
-      return true
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
     }
-    return false
+    return this.isLoggedIn;
   }
-  login = (token) =>{
+
+  login = (data) =>{
     this.setState((prevState)=> {
       const newState = {
         isLoggedIn: !prevState.isLoggedIn,
-        token: token
+        token: data.token,
+        userName: data.user.name
       }
-      window.sessionStorage.setItem("insta-clone", token)
+      window.sessionStorage.setItem("insta-clone", data.token)
       return newState;
     })
   }
+
   logout = async () => {
     sessionStorage.removeItem("insta-clone");
     this.setState((prevState) => {
       return {
         isLoggedIn: !prevState.isLoggedIn,
-        token: null
+        token: null,
+        userName: null
       }
     })
   }
